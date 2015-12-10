@@ -29,7 +29,6 @@ namespace MYKURS {
 			//TODO: добавьте код конструктора
 			//	
 		}
-
 	protected:
 		/// <summary>
 		/// Освободить все используемые ресурсы.
@@ -49,9 +48,9 @@ namespace MYKURS {
 	private: System::Windows::Forms::Button^  button1;
 	private: System::Windows::Forms::Button^  button2;
 	private: System::Windows::Forms::Button^  button3;
-	private: System::Windows::Forms::Button^  button4;
+
 	private: System::Windows::Forms::TextBox^  textBox1;
-	private: System::Windows::Forms::TextBox^  textBox2;
+
 	private: System::Windows::Forms::Label^  label2;
 
 
@@ -76,17 +75,15 @@ namespace MYKURS {
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
-			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->SuspendLayout();
 			// 
 			// richTextBox1
 			// 
 			this->richTextBox1->BackColor = System::Drawing::SystemColors::InactiveBorder;
-			this->richTextBox1->Location = System::Drawing::Point(3, 131);
+			this->richTextBox1->Location = System::Drawing::Point(3, 151);
 			this->richTextBox1->Name = L"richTextBox1";
-			this->richTextBox1->Size = System::Drawing::Size(577, 525);
+			this->richTextBox1->Size = System::Drawing::Size(577, 497);
 			this->richTextBox1->TabIndex = 0;
 			this->richTextBox1->Text = L"";
 			this->richTextBox1->TextChanged += gcnew System::EventHandler(this, &MyForm::richTextBox1_TextChanged);
@@ -104,9 +101,9 @@ namespace MYKURS {
 			this->label2->AutoSize = true;
 			this->label2->Location = System::Drawing::Point(843, 121);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(242, 13);
+			this->label2->Size = System::Drawing::Size(104, 13);
 			this->label2->TabIndex = 0;
-			this->label2->Text = L"Демонстрация построения дерева Хаффмана";
+			this->label2->Text = L"Дерево Хаффмана";
 			// 
 			// label1
 			// 
@@ -115,13 +112,15 @@ namespace MYKURS {
 			this->label1->ForeColor = System::Drawing::Color::Maroon;
 			this->label1->Location = System::Drawing::Point(13, 3);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(449, 17);
+			this->label1->Size = System::Drawing::Size(601, 17);
 			this->label1->TabIndex = 2;
-			this->label1->Text = L"Внимание! Ограничение на ввод! Только заглавные русские буквы";
+			this->label1->Text = L"Внимание! Ограничение на ввод! Только заглавные латинские буквы и символы \? ! ( )" 
+				L" * %";
+			this->label1->Click += gcnew System::EventHandler(this, &MyForm::label1_Click_1);
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(121, 38);
+			this->button1->Location = System::Drawing::Point(41, 38);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(172, 68);
 			this->button1->TabIndex = 3;
@@ -131,7 +130,7 @@ namespace MYKURS {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(335, 38);
+			this->button2->Location = System::Drawing::Point(823, 38);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(172, 68);
 			this->button2->TabIndex = 4;
@@ -141,7 +140,7 @@ namespace MYKURS {
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(586, 38);
+			this->button3->Location = System::Drawing::Point(351, 38);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(317, 34);
 			this->button3->TabIndex = 5;
@@ -149,30 +148,13 @@ namespace MYKURS {
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
 			// 
-			// button4
-			// 
-			this->button4->Location = System::Drawing::Point(986, 38);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(317, 34);
-			this->button4->TabIndex = 6;
-			this->button4->Text = L"Введите строку, которую хотите декодировать";
-			this->button4->UseVisualStyleBackColor = true;
-			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
-			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(557, 78);
+			this->textBox1->Location = System::Drawing::Point(335, 78);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(377, 20);
 			this->textBox1->TabIndex = 7;
 			this->textBox1->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox1_TextChanged);
-			// 
-			// textBox2
-			// 
-			this->textBox2->Location = System::Drawing::Point(951, 78);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(377, 20);
-			this->textBox2->TabIndex = 8;
 			// 
 			// MyForm
 			// 
@@ -181,9 +163,7 @@ namespace MYKURS {
 			this->BackColor = System::Drawing::SystemColors::GradientInactiveCaption;
 			this->ClientSize = System::Drawing::Size(1354, 733);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->textBox1);
-			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
@@ -199,52 +179,68 @@ namespace MYKURS {
 		}
 #pragma endregion
 	
-		void displayBT1 (binTree b, int n,ofstream& out)
-{	// n - уровень узла
-	if (b!=NULL)
-	{
+	void displayBT1 (binTree b, int n,ofstream& out)
+	{	// n - уровень узла
+		if (b!=NULL)
+		{
 
-		displayBT1 (Right1(b),n+1,out);
-		for (int i=0;i<n;i++) out << "     "; // вправо
-		out << "     " << "(" << b->weight ; // "   "
-		if(b->info!=' ') out << "/" << b->info << ")" ;
-		else out << ")";
-		out << endl;
-		displayBT1 (Left1(b),n+1,out);
+			displayBT1 (Right1(b),n+1,out);
+			for (int i=0;i<n;i++) out << "     "; // вправо
+			out << "     " << "(" << b->weight ; // "   "
+			if(b->info!=' ') out << "/" << b->info << ")" ;
+			else out << ")";
+			out << endl;
+			displayBT1 (Left1(b),n+1,out);
+		}
 	}
-}
 	inline void displayBT (binTree b, int theX, int theY,int n, int theX1, int theY1)
-		{	
-			System::Text::Encoding::Default;
-			Graphics ^panelGraphics = panel1->CreateGraphics();
-			if (b!=NULL) 
+	{	
+		//System::Text::Encoding::Default;
+		Graphics ^panelGraphics = panel1->CreateGraphics();
+		if (b!=NULL) 
+		{
+			Label^ label = gcnew Label();
+			label->Font = gcnew System::Drawing::Font("verdana",11);
+			label->Width = 40;
+			label->Height=40;
+			label->BackColor = Color::YellowGreen;
+			label->Location = Point(theX1, theY1);
+			if(b->info!=' ')
+			{label->Text =(wchar_t)RootBT(b)+"(" + (b->weight)+")";}
+			else 
+				{label->Text = "("+(b->weight)+")";}
+			panel1->Controls->Add(label);				
+			n++;
+			if(!isNull(Right1(b))) 
 			{
-				Label^ label = gcnew Label();
-				label->Font = gcnew System::Drawing::Font("verdana",11);
-				label->Width = 40;
-				label->BackColor = Color::YellowGreen;
-				label->Location = Point(theX1, theY1);
-				if(b->info!=' ')
-				{label->Text = Convert::ToString((wchar_t)b->info)+"(" + Convert::ToString(b->weight)+")";}
-				else {label->Text = "(" + Convert::ToString(b->weight)+")";}
-				panel1->Controls->Add(label);
-			
-				if(theX !=theX1 && theY !=theY1){
-				 // Draw line to screen.
-					panelGraphics->DrawLine( gcnew Pen(Color::Brown, 2), Point(theX+10,theY+10), Point(theX1+10,theY1+10));}
-				n++;
-				if(!isNull(Right1(b))) 
+				displayBT (Right1(b),theX1,theY1,n,theX1+150/n,theY1+50);
+			}
+				if(theX !=theX1 && theY !=theY1)
+			{
+				panelGraphics->DrawLine( gcnew Pen(Color::Brown, 2), Point(theX+10,theY+10), Point(theX1+10,theY1+10));
+			}
+		
+ 			if(!isNull(Left1(b))) 
+			{
+				displayBT (Left1(b),theX1,theY1,n,theX1-150/n,theY1+50);
+			}
+		}
+	}
+	inline void pr1(string code)
+	{
+		int size=code.length();
+		for(int step1=0;step1<size;step1++)
+		{
+			if(code[step1]!='0')
+			{
+				if (code[step1]!='1')
 				{
-					displayBT (Right1(b),theX1,theY1,n,theX1+150/n,theY1+50);
-				}
-			
- 				if(!isNull(Left1(b))) 
-				{
-					displayBT (Left1(b),theX1,theY1,n,theX1-150/n,theY1+50);
+						MessageBox::Show("Ошибка!(Неверно задана закодированная строка)");
+						exit(1);
 				}
 			}
 		}
-
+	}
 	inline string Kodir(char a,diction slovar[34])
 	{//Кодирует первое вхождение элементов
 		int j=0;
@@ -275,7 +271,7 @@ namespace MYKURS {
 		out1<<"Выделим код: "<<z<<endl;
 		out1<<"Найдем соответствующий ему символ в словаре: "<<endl;
 		int j=0;
-		while((slovar[j].code!=z)||(j==34))  j++;//Ищем данную кодировку в словаре
+		while((slovar[j].code!=z)&&(j!=34))  j++;//Ищем данную кодировку в словаре
 		if(j==34) 
 		{
 			MessageBox::Show( "Ошибка ( Данного символа нет в словаре)"); 
@@ -284,7 +280,6 @@ namespace MYKURS {
 		ch[step]=slovar[j].symv;//Заменяем последний символ закодированного символа, на раскодированный символ
 		out1<<ch[step] <<endl;
 	} 
-
 	inline binTree Dechip(string code,binTree root,int& step,ofstream& out)
 	{//Проверяем является ли следующий символ уже считанным или это новый символ
 		out<< "Выделим "<<endl;
@@ -342,7 +337,7 @@ namespace MYKURS {
 		code+=parent->code;//Добавить в кодовую строку parent->code и код символа
 		d=Kodir(info,slovar);//Закодируем первое вхождение текущего символа
 		code+=d;
-		code+=' ';
+		//code+=' ';
 		right->code=parent->code+"1";//Добавим 1 к коду(т.к. он правый элемент)
 		out << "Создаем правое поддерево со значением: "<< info<<" с кодом "<<right->code<<" весом "<<right->weight<<endl;
 		out << "Добавим в кодовую строку код родителя от которого построен лист с новым символом ("<<parent->code<<") и код первого вхождения символа ("<<d<<")"<<endl;
@@ -425,7 +420,7 @@ namespace MYKURS {
 		codes=b->parent->code;
 		Codes(b->parent,codes);//востановим кодировку измененного дерева
 		a=a->parent;
-		out << "Скоректируем веса, так что вес каждого корня дерева будет равень, сумме весов их левого и правого под дерева"<<endl;
+		out << "Скоректируем веса, так что вес каждого корня дерева будет равен, сумме весов их левого и правого под дерева"<<endl;
 		while(a)//коректируем веса над а
 		{
 			a->weight=a->lt->weight+a->rt->weight;
@@ -563,7 +558,7 @@ namespace MYKURS {
 		binTree m,root;
 		binTree check[100];
 		m=new node;//Создадим 1й элемент от которого мы будем строить дерево
-		m->code=" ";
+		m->code="";
 		m->weight=0;
 		m->parent=0;
 		check[i]=m;
@@ -616,9 +611,11 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 			ifstream infile ("Slovar.txt");
 			string code;
 			string ch;
+			in1.clear();
 			char u;
 			int length;
-			panel1->Controls->Clear();	
+			panel1->Controls->Clear(); 
+			panel1->Invalidate();
 			infile >> u;
 			for(int i1=0;i1<34;i1++)
 			{
@@ -658,13 +655,12 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 			ifstream in1("input1.txt");
 			ofstream out1("output1.txt");
 			diction slovar[34];
-			panel1->Controls->Clear();	
-			String^ file1=File::ReadAllText("input1.txt",System::Text::Encoding::Default);
-			this-> richTextBox1->Text=file1;
 			string code;
 			string decode;
 			int length;
 			char u;
+			panel1->Controls->Clear(); 
+			panel1->Invalidate();
 			infile >> u;
 			for(int i1=0;i1<34;i1++)
 			{
@@ -684,11 +680,14 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 			in1.clear();
 			in1.seekg(0,ios::beg);
 			getline(in1,code);
+			String^ file1=File::ReadAllText("input1.txt",System::Text::Encoding::Default);
+			this-> richTextBox1->Text=file1;
 			if(code.length()==0) 
 			{
 				MessageBox::Show("Файл не был создан или он пуст");	
 				exit(1);
 			}
+			pr1(code);
 			out1 << "Сообщение: " << code << endl;
 			enterBT1(decode,code,out1,slovar);
 			out1 << "Раскодированное сообщение: " << decode << endl;
@@ -703,11 +702,13 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 			ofstream in1("input1.txt");
 			diction slovar[34];
 			ifstream infile ("Slovar.txt");
+			in1.clear();
 			string code;
 			string ch;
 			char u;
 			int length;
-			panel1->Controls->Clear();	
+			panel1->Controls->Clear(); 
+			panel1->Invalidate();
 			infile >> u;
 			for(int i1=0;i1<34;i1++)
 			{
@@ -733,6 +734,7 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 				enterBT(code,ch,out,slovar);
 				out <<"Кодовое дерево создано!" << endl;
 				out << endl << "Закодированное сообщение: " << code << endl;
+				in1<<code;
 				infile.close();
 				out.close();
 				in1.close();
@@ -742,48 +744,7 @@ private: System::Void button3_Click(System::Object^  sender, System::EventArgs^ 
 		 }
 private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {
 		 }
-private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
-			setlocale(0,"Rus");
-			ofstream out("output.txt");
-			diction slovar[34];
-			ifstream infile ("Slovar.txt");
-			string code;
-			string decode;
-			char u;
-			int length;
-			int g1=0;
-			int size1=0;
-			panel1->Controls->Clear();	
-			infile >> u;
-			for(int i1=0;i1<34;i1++)
-			{
-				slovar[i1].symv=u;
-				infile >> u;
-				while((u=='1')||(u=='0'))
-				{
-					slovar[i1].code+=u;
-					infile >> u;
-					length=slovar[i1].code.length();
-					if(length>5)
-					{
-						break;
-					}
-				}
-			}
-			String^ text = textBox2->Text;
-			code = marshal_as<string>(text);
-			out << "Введено сообщение:" << code << endl;
-			if(code.length()==0)  MessageBox::Show("Введите строку");	
-			else
-			{
-				enterBT1(decode,code,out,slovar);
-				out <<"Кодовое дерево создано!" << endl;
-				out << "Закодированное сообщение: " << decode << endl;
-				infile.close();
-				out.close();
-				String^ file2=File::ReadAllText("output.txt",System::Text::Encoding::Default);
-				this->richTextBox1->Text=file2;
-			}
+private: System::Void label1_Click_1(System::Object^  sender, System::EventArgs^  e) {
 		 }
 };
 }
